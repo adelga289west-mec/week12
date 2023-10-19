@@ -1,0 +1,42 @@
+
+.image-section-main {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0.5vh 0;
+}
+.image-section {
+    height: auto;
+    width: 99%;
+    display: grid;
+    grid-template-areas: 
+    "a a a b b"
+    "c c d d d";
+    grid-gap: 5px;
+}
+.image-section > img {
+    height: 42vh;
+    width: 100%;
+    display: inline-block;
+    justify-self: center;
+    background-color: var(--background-color-image);
+}
+.image-top-left {
+    grid-area: a;
+    
+
+}
+.image-top-right {
+    grid-area: b;
+    object-fit: cover;
+
+}
+.image-bottom-left {
+    grid-area: c;
+    object-fit: cover;
+
+}
+.image-bottom-right {
+    grid-area: d;
+}

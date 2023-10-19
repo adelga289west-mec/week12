@@ -1,0 +1,22 @@
+:root{
+    --background-color: white;
+    --theme-background-color: #B07249;
+    --main-color: black;
+    --second-color: white;
+    --main-font-famiy: Arial, Helvetica, sans-serif;
+    --background-color-image: #E7E7E7;
+    --mini-blog-height: 20rem;
+    --mini-blog-widht: 20rem;
+    --mini-blog-background-color: var(--background-color-image);
+    --mini-blog-title-color: #D6A280;
+    --mini-blog-read-more-color: #C1A390;
+    --footer-background-color: #B3917A;
+    --footer-icons-size: 21px;
+    --footer-hover-color: #bb8564;
+    --tag-box-background-color: #D9D9D9;
+    --tag-text-color: var(--main-color); 
+    --blog-box-background-color: #F6F6F6;
+    --mini-tag-text-color: var(--main-color);
+    --mini-tag-text-background-color: #D9D9D9;
+    --blog-box-padding: 0.6rem;
+}

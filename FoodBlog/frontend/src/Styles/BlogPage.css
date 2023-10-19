@@ -1,0 +1,25 @@
+.blog-grid{
+    height: auto;
+    width: 84%;
+    padding: 1vh 8%;
+    display: grid;
+    grid-template-columns: 60% 25%;
+    /* grid-template-columns: 50%; */
+    justify-content: center;
+    grid-column-gap: 4%;
+    
+}
+
+@media (max-width: 767px) {
+
+    .blog-grid{
+        height: auto;
+        width: 84%;
+        padding: 1vh 8%;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        gap: 4%;
+    }
+}
+
