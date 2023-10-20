@@ -8,19 +8,23 @@ import facebook from '../Images/facebook.png'; */
 function Header() {
 
   return (
-    <div className="header">
-        <div className="header-head">
-            <div className="header-search-credits">
-                {/* <img src="" alt="search logo" /> */}
-                <p>Search</p>
-                {/* <img src={instagram} alt="instagram" />
-                <img src={facebook} alt="facebook" /> */}
-            </div>
-            <nav className="header-login-signin">
-                <a href="">Log In</a>
-                <a href="">Sign In</a>
-            </nav>
-        </div>
+
+    <><header className="header">
+      <div className="search-container">
+        <input type="text" placeholder="Search" />
+        <img src="instagram_icon.png" alt="Instagram Icon" />
+        <img src="facebook_icon.svg" alt="FaceBook Icon" />
+        <img src="twitter_icon.png" alt="Twitter Logo" />
+      </div>
+
+      <div className="Logging">
+      <a className="Log" href="/login">Log In</a>
+      <a className="Log" href="/signup">Sign In</a>
+      </div>
+
+    </header>
+
+
         <div className="header-title">
             <p>World Kitchen Wonders</p>
             <img src={logo} alt="logo" />
@@ -30,7 +34,10 @@ function Header() {
             <a href="">Recommendations</a>
             <a href="">Recipes</a>
         </nav>
-    </div>
+
+        </>
+    
+    
   )
 }
 

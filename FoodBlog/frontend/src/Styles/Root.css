@@ -19,4 +19,9 @@
     --mini-tag-text-color: var(--main-color);
     --mini-tag-text-background-color: #D9D9D9;
     --blog-box-padding: 0.6rem;
+    --login-form-background-color: #D2C4BC;
+    --login-signup-background-color: #D9D9D9;
+    --login-signup-outer-color: var(--main-color);
+    --login-signup-inner-color: var(--second-color);
+    --form-animation-block-background-color: #DD8D8D;
 }

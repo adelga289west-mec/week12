@@ -1,5 +1,5 @@
-const mongoose = require("mongoose")
-const Schema= mongoose.Schema
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 let foodSchema = new Schema({
   
@@ -13,13 +13,15 @@ let foodSchema = new Schema({
         type: String,
     },
     dishOrigin:{
-        type: String
-
+        type: String,
     },
     category: {
-        type: String
+        type: String,
     }
 }, {
     collection: 'blogs', 
+        
 })
+
+
 module.exports = mongoose.model('Blog', foodSchema)

@@ -6,6 +6,9 @@ import CreateBlg from './components/CreateBlg';
 import Header from './Components/Header';
 import Home from './Components/Home';
 import BlogPage from './components/BlogPage';
+import LoginPage from './components/LoginPage';
+import SignupPage from './components/SignupPage'
+
 function App() {
   return (
     <div>
@@ -14,9 +17,13 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/create-blog' element={<CreateBlg />} />
         <Route path='/view-blogs' element={<BlogPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/signup' element={<SignupPage />} />
       </Routes>
       <Link to={"/create-blog"}>Create Blog</Link>
       <Link to={"/view-blogs"}>View Blogs</Link>
+      <Link to={"/login"}>Login</Link>
+      <Link to={"/signup"}>Sign Up</Link>
 
 
       <Footer />
