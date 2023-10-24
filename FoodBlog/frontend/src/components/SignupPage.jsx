@@ -20,7 +20,7 @@ function SignupPage() {
     const onSubmit = (e) => {
         e.preventDefault();
         axios
-            .post("http://localhost:5000/user/signup", userForm)
+            .post("http://localhost:5000/users/signup", userForm)
             .then((res) => {
                 console.log(res.data);
                 setUserForm({
@@ -38,7 +38,7 @@ function SignupPage() {
         <div>
 
        
-        <form onSubmit={onSubmit} className="form-body" action="/signup" method="post">
+        <form onSubmit={onSubmit} className="form-body" >
             <p className="form-title">Signup Form</p>
             <div className="login-signup-main">
                 <div className="login-signup-body">

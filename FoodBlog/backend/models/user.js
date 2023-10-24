@@ -7,7 +7,7 @@ let usersSchema = new Schema({
     password: String,
     confirmpassword: String,
 }, {
-    collection: 'user', 
+    collection: 'users', 
 });
 
 module.exports = mongoose.model('user', usersSchema);

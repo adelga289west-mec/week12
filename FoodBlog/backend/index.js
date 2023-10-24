@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(cors());
 app.use("/blogs", blogRoute);
-app.use("/user", userRoute);
+app.use("/users", userRoute);
 
 app.use((req, res, next) => {
   next(createError(404));
