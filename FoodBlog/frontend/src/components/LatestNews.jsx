@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import '../Styles/LatestNews.css';
 import '../Styles/Root.css';
 import MiniBlog from './MiniBlog';
-import axios from 'axios';
-
 function LatestNews() {
 
   
@@ -15,7 +13,7 @@ function LatestNews() {
         <div className="news-title">
           <p>Latest</p>
         </div>
-        <div className="news-show">
+        <div className="news-show" >
 
            <MiniBlog />
            </div>
@@ -24,5 +22,12 @@ function LatestNews() {
     </>
   )
 }
+
+/*  function scroll(){
+  const element = document.getElementById("news");
+  element.scrollLeft = element.scrollWidth
+}
+
+scroll()  */
 
 export default LatestNews;

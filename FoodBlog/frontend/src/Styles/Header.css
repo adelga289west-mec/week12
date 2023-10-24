@@ -122,8 +122,27 @@ header{
         width: 100px;
         height: 12vh;
         display: block;
+}
 
-        
+.Logging{
+    width: 150px;
+    
+}
+.Log{
+    width: 100px;
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+.header-subtopics {
+    height: 6vh;
+    width: 77%;
+    display: flex;
+    justify-self: center;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+    gap: 10px;
 
 }
 }

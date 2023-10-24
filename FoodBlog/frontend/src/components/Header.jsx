@@ -19,7 +19,7 @@ function Header() {
 
       <div className="Logging">
       <a className="Log" href="/login">Log In</a>
-      <a className="Log" href="/signup">Sign In</a>
+      <a className="Log" href="/signup">Sign Up</a>
       </div>
 
     </header>

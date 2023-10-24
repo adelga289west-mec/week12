@@ -3,8 +3,8 @@ import './App.css';
 import { Routes, Route, Link } from "react-router-dom";
 import Footer from './components/Footer';
 import CreateBlg from './components/CreateBlg';
-import Header from './Components/Header';
-import Home from './Components/Home';
+import Header from './components/Header.jsx';
+import Home from './components/Home.jsx';
 import BlogPage from './components/BlogPage';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage'

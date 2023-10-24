@@ -20,6 +20,7 @@ function SignupPage() {
     const onSubmit = (e) => {
         e.preventDefault();
         axios
+            /* .post("http://localhost:5000/users/signup", userForm) */
             .post("http://localhost:5000/users/signup", userForm)
             .then((res) => {
                 console.log(res.data);
@@ -35,36 +36,19 @@ function SignupPage() {
     useEffect(() => {}, []);
 
     return (
-        <div>
-
-       
         <form onSubmit={onSubmit} className="form-body" >
             <p className="form-title">Signup Form</p>
             <div className="login-signup-main">
                 <div className="login-signup-body">
-                    <button id="login" /* onClick={activate(this)} */ className="login-signup-outer">Login</button>
-                    <button id="signup" /* onClick={activate(this)} */ className="login-signup-inner">Signup</button>  
+                    {/* <button id="login"  className="login-signup-outer">Log-in</button>
+                    <button id="signup"   className="login-signup-inner">Sign-up</button>   */}
                 </div>
                 {/* <div className="form-animation-block" /> */}
             </div>
-            <div>
-
-        
             <input type="email" placeholder="Email Address" id="email" name="email" className="form-box"  value={userForm.email} onChange={inputsHandler}></input>
-            </div>
-
-            <div>
             <input type="text" placeholder="Username" id="username" name="username" className="form-box"  value={userForm.username} onChange={inputsHandler} ></input>
-            </div>
-            
-            <div>
             <input type="password" placeholder="Password" id="password" name="password" className="form-box"  value={userForm.password} onChange={inputsHandler} ></input>  
-            </div>
-
-            <div>
-
             <input type="password" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword" className="form-box"  value={userForm.confirmpassword} onChange={inputsHandler} ></input>        
-            </div>
             <div className="form-forgot-password-main">
                 <a href="#" className="form-forgot-password">
                     <p>Forgot Password?</p>
@@ -72,12 +56,10 @@ function SignupPage() {
             </div>
            
             <button type="submit" className="form-login-button">
-                <p>Signup</p>     
+                <p>Sign-up</p>     
             </button>
         
         </form>
-        
-    </div>
     );
 }
 
