@@ -23,20 +23,9 @@
     height: auto;
     width: 90%;
     align-items: space-between;
-
     display: flex;
-    flex-direction: row;
-    overflow-x: hidden;
-    
-    
-    
-    
-    /* display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 1%;
-    margin: 0 5%; */
-    
-    
+    flex-direction: row-reverse;
+    overflow-x: scroll;
 }
 .news-show > div {
     justify-self: center;

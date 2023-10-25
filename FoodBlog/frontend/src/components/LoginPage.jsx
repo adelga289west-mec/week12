@@ -20,8 +20,8 @@ function LoginPage() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        axios
-            .get("http://localhost:5000/user/login", userForm)
+        
+        axios.post("http://localhost:5000/users/login", userForm)
             .then((res) => {
                 console.log(res.data);
                 setUserForm({
@@ -36,7 +36,7 @@ function LoginPage() {
     useEffect(() => {}, []);
 
     return (
-        <form onSubmit={onSubmit} className="form-body" action="/login" method="get">
+        <form onSubmit={onSubmit} className="form-body" /* action="/login" method="post" */>
             <p className="form-title">Login Form</p>
             <div className="login-signup-main">
                 <div className="login-signup-body">
@@ -45,10 +45,10 @@ function LoginPage() {
                 </div>
                 {/* <div className="form-animation-block" /> */}
             </div>
-            <input type="email" placeholder="Email Address" id="email" name="email" className="form-box"  value={userForm.email} onChange={inputsHandler}></input>
-            <input type="text" placeholder="Username" id="username" name="username" className="form-box"  value={userForm.username} onChange={inputsHandler} ></input>
-            <input type="password" placeholder="Password" id="password" name="password" className="form-box"  value={userForm.password} onChange={inputsHandler} ></input>  
-            <input type="password" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword" className="form-box"  value={userForm.confirmpassword} onChange={inputsHandler} ></input>        
+            <input type="email" placeholder="Email Address" id="email" name="email" className="form-box" value={userForm.email} onChange={inputsHandler}></input>
+            <input type="text" placeholder="Username" id="username" name="username" className="form-box" value={userForm.username} onChange={inputsHandler} ></input>
+            <input type="password" placeholder="Password" id="password" name="password" className="form-box" value={userForm.password} onChange={inputsHandler} ></input>  
+            <input type="password" placeholder="Confirm Password" id="confirmpassword" name="confirmpassword" className="form-box" value={userForm.confirmpassword} onChange={inputsHandler} ></input>        
             <div className="form-forgot-password-main">
                 <a href="#" className="form-forgot-password">
                     <p>Forgot Password?</p>

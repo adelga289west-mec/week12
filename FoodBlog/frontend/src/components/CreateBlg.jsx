@@ -111,9 +111,8 @@ function CreateBlg() {
       </div>
 
       <div id="boxes">
-        <label for="Content" id="title">Content:</label>
+        <label for="Content" id="title">Insert Image:</label>
         <div className="top-inputs">
-          <textarea id="Content" name="content" placeholder="Content" value={userForm.content} onChange={inputsHandler}></textarea>
           <input id="files" name="file" type="file" placeholder="Insert Image" />
       </div>
       </div>

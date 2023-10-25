@@ -9,7 +9,8 @@ function Header() {
 
   return (
 
-    <><header className="header">
+    <>
+    <header className="header">
       <div className="search-container">
         <input type="text" placeholder="Search" />
         <img src="instagram_icon.png" alt="Instagram Icon" />

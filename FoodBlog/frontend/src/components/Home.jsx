@@ -4,6 +4,8 @@ import LatestNews from './LatestNews.jsx';
 import '../Styles/Home.css';
 import '../Styles/Root.css';
 
+
+
 function Home() {
 
     return(
@@ -15,3 +17,5 @@ function Home() {
 }
 
 export default Home;
+
+

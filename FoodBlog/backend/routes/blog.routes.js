@@ -35,4 +35,16 @@ router.route("/").get(async (req, res, next) => {
     });
 });
 
+/*  router.route('/latestNews').get(async(req,res)=>{
+    try{
+        const latestPosts = await Post.find()
+        .sort({ date: -1})
+        .limit(3)
+        res.json(latestPosts)
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({error: 'Internal Server Error'})
+    }
+}) 
+ */
 module.exports = router;
