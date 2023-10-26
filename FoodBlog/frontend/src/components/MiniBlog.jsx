@@ -14,6 +14,7 @@ function MiniBlog() {
     .get("http://localhost:5000/blogs/")
     .then((res) => {
         setUserForm(res.data.data);
+        console.log(res.data.data.description)
     })
     .catch((error) => {
         console.log(error);

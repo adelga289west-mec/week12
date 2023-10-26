@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import '../Styles/LoginPage.css';
 import axios from 'axios';
 
-function LoginPage() {
+function LoginPage({setUser}) {
 
     const [userForm, setUserForm] = useState({
         email: "",
@@ -20,10 +20,10 @@ function LoginPage() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        
         axios.post("http://localhost:5000/users/login", userForm)
             .then((res) => {
                 console.log(res.data);
+                setUser(res.data.data);
                 setUserForm({
                     email: "",
                     username: "",

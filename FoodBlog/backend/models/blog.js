@@ -15,6 +15,9 @@ let foodSchema = new Schema({
         category: {
             type: String,
         },
+    /*     imageURL:{
+            type:String,
+        }, */
         rating: [{
             thumbsUp: {
                 type: Number,

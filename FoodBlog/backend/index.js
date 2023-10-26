@@ -10,7 +10,8 @@ const app = express();
 
 // Connect to MongoDB
 mongoose
-.connect("mongodb+srv://adelga289:delgadojunior0306@cluster0.qrrrtmh.mongodb.net/foodBlog")
+  /* .connect("mongodb+srv://adelga289:delgadojunior0306@cluster0.qrrrtmh.mongodb.net/foodBlog") */
+  .connect('mongodb+srv://dchiquete2019:97Ap4KcvLRfmz6Hs@cluster0.nr0zix5.mongodb.net/Blog')
   .then(x => console.log(`MongoDB Connected Database name: "${x.connections[0].name}"`))
   .catch(err =>{
     console.error('Error connecting', err.reason);
