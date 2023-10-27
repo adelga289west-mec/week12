@@ -24,8 +24,9 @@ function LoginPage({setUser}) {
         await axios
             .get(`http://localhost:5000/users/validate/${userForm.email}`)
             .then(res => {
+                console.log(res.data.data);
                 // *if no account email (unique) matched
-                if(res.data.result === undefined) {
+                if(res.data.data === undefined) {
                     const input = document.getElementById('email');
                     input.setCustomValidity('That email does not match with any account.');
                     return;
