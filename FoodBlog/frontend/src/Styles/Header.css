@@ -65,7 +65,7 @@ header{
     border-bottom: 1px solid rgb(153, 153, 153);
     
 }
-.header-title > p {
+.header-p {
     font-family: var(--main-font-family);
     font-size: 32px;
     font-weight: bold;
@@ -75,10 +75,9 @@ header{
     align-items: center;
     margin-right: 100px;
 }
-.header-title > img {
+.header-img {
     height: 160px;
     width: 160px;
-    
 }
 .header-subtopics {
     height: 6vh;

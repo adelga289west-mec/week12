@@ -10,7 +10,9 @@ import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 
 function App() {
-  const [user, setUser] = useState()
+  // Specifc User Account
+  const [user, setUser] = useState();
+  
   return (
     <div>
       <Header user={user} />
@@ -23,8 +25,6 @@ function App() {
       </Routes>
       <Link to={"/create-blog"}>Create Blog</Link>
       <Link to={"/view-blogs"}>View Blogs</Link>
-      <Link to={"/login"}>Login</Link>
-      <Link to={"/signup"}>Sign Up</Link>
       <Footer />
     </div>
   );

@@ -4,6 +4,9 @@ body {
   padding: 0;
 }
 
+.main-color{
+  color: var(--main-color);
+}
 
 header {
   display: flex;
@@ -178,4 +181,8 @@ header {
 
 .post-button:hover {
   background-color: #8f5c3c;
+}
+
+.no-decor{
+  text-decoration: none;
 }

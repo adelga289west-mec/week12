@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, Link } from "react-router-dom";
 import '../Styles/LoginPage.css';
 import axios from 'axios';
 
@@ -36,12 +37,16 @@ function SignupPage() {
     useEffect(() => {}, []);
 
     return (
-        <form onSubmit={onSubmit} className="form-body" >
+        <form onSubmit={onSubmit} className="form-body">
             <p className="form-title">Signup Form</p>
             <div className="login-signup-main">
                 <div className="login-signup-body">
-                    {/* <button id="login"  className="login-signup-outer">Log-in</button>
-                    <button id="signup"   className="login-signup-inner">Sign-up</button>   */}
+                    <button id="login" className="login-signup-outer">
+                        <Link className="no-decor login-signup-outer-color" to={"/login"}>Log-in</Link>
+                    </button>
+                    <button id="signup" className="login-signup-inner">
+                        <Link className="no-decor login-signup-inner-color" to={"/signup"}>Sign-up</Link>
+                    </button>
                 </div>
                 {/* <div className="form-animation-block" /> */}
             </div>

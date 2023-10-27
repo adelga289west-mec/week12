@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, Link } from "react-router-dom";
 import '../Styles/LoginPage.css';
 import axios from 'axios';
 
@@ -40,8 +41,12 @@ function LoginPage({setUser}) {
             <p className="form-title">Login Form</p>
             <div className="login-signup-main">
                 <div className="login-signup-body">
-                    <button id="login" /* onClick={activate(this)} */ className="login-signup-inner">Login</button>
-                    <button id="signup" /* onClick={activate(this)} */ className="login-signup-outer">Signup</button>  
+                    <button id="login" className="login-signup-inner">
+                        <Link className="no-decor login-signup-inner-color" to={"/login"}>Log-in</Link>
+                    </button>
+                    <button id="signup" className="login-signup-outer">
+                        <Link className="no-decor login-signup-outer-color" to={"/signup"}>Sign-up</Link>
+                    </button>
                 </div>
                 {/* <div className="form-animation-block" /> */}
             </div>

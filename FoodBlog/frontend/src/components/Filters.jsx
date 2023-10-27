@@ -8,12 +8,12 @@ function Filters() {
     <div className="filters-main">
       <div className="filters-body">
         <p>Filters</p>
+        {/* <Tag />
         <Tag />
         <Tag />
         <Tag />
         <Tag />
-        <Tag />
-        <Tag />
+        <Tag /> */}
       </div>
     </div>
   )
