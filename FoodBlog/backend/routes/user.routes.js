@@ -50,6 +50,7 @@ router.route("/signup").post(async (req, res, next) => {
             username: req.body.username,
             email: req.body.email,
             password: hash,
+            confirmpassword: hash,
         })
         .then((result) => {
             res.json({
@@ -78,5 +79,23 @@ router.route("/:userId").get(async (req, res, next) => {
             return next(err);
         });
 });
+
+router.route("/validate/:email").get(async (req, res, next) => {
+    await userSchema
+        .findOne({email: req.params.email})
+        .then((result) => {
+            res.json({
+                data: result,
+                available: result ? false : true,
+                message: "All items successfully fetched",
+                status: 200,
+            });
+        })
+        .catch(err => {
+            return next(err);
+        });
+});
+
+
 
 module.exports = router;

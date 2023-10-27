@@ -21,7 +21,7 @@ function LatestNews() {
         </div>
         <div className="news-show" id='scroll' >
 
-           <MiniBlog />
+           {/* <MiniBlog /> */}
            </div>
            </div>
       
