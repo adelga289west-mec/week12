@@ -26,7 +26,7 @@ function LoginPage({setUser}) {
             .then(res => {
                 console.log(res.data.data);
                 // *if no account email (unique) matched
-                if(res.data.data === undefined) {
+                if(res.data.data.email === undefined) {
                     const input = document.getElementById('email');
                     input.setCustomValidity('That email does not match with any account.');
                     return;
