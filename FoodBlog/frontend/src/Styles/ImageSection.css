@@ -24,6 +24,15 @@
 }
 .image-top-left {
     grid-area: a;
+    background-image: url('../Images/Food1.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-size: 60px;
+    font-weight: bolder;
+    text-align: end;
+    
+    
     
 
 }
@@ -39,4 +48,22 @@
 }
 .image-bottom-right {
     grid-area: d;
+    background-image: url('../Images/food3.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-size: 60px;
+    font-weight: bolder;
+    transform: scaleX(-1);
+   
+
+}
+.text1{
+    margin-top: 50px;
+    margin-right: 50px;
+}
+.text2{
+    transform: scaleX(-1);
+    margin-top: 80px;
+    margin-right: 50px;
 }

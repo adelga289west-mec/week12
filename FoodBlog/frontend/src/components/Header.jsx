@@ -9,8 +9,7 @@ import SignupPage from './SignupPage';
 /* import instagram from '../Images/instagram.png'
 import facebook from '../Images/facebook.png'; */
 
-function Header() {
-  const [user, setUser] = useState();
+function Header({user}) {
 
   // const [user, setUser] = useState([]);
 
@@ -33,20 +32,23 @@ function Header() {
   //   getUserData()
   // }, []);
 
+  const accountMenu = () => {
+    // *Must use functions in order to return html format code
+    return(
+      user.username
+    );
+  }
+
   return (  
     <>
       <header className="header">
         <div className="search-container">
-          <input type="text" placeholder="Search" />
           <img src="instagram_icon.png" alt="Instagram Icon" />
-          <img src="facebook_icon.svg" alt="FaceBook Icon" />
+          <img src="facebook_logo.png" alt="FaceBook Icon" />
           <img src="twitter_icon.png" alt="Twitter Logo" />
         </div>
-
         <div className="Logging">
-          <p>{user ? user.username : ""}</p>
-          <Link to={"/login"}>Login</Link>
-          <Link to={"/signup"}>Sign Up</Link>
+          <p>{user ? accountMenu() : <Link to={"/login"}>Login</Link>}</p>
         </div>
       </header>
       

@@ -24,36 +24,56 @@ function LoginPage({setUser}) {
         await axios
             .get(`http://localhost:5000/users/validate/${userForm.email}`)
             .then(res => {
-                console.log(res.data.data);
+                // console.log(res.data.available)
                 // *if no account email (unique) matched
-                if(res.data.data.email === undefined) {
+                if(res.data.available) {
                     const input = document.getElementById('email');
                     input.setCustomValidity('That email does not match with any account.');
                     return;
                 }
-                if (res.data.data.username != userForm.username || 
-                    res.data.data.password != userForm.password || 
-                    res.data.data.confirmpassword != userForm.confirmpassword) {
-                    const input = document.getElementById('email');
-                    input.setCustomValidity('One or more inputs do not match.');
+                // console.log("res.data.data.email: " + res.data.data.email);
+                // console.log("userForm.email: " + userForm.email);
+                // console.log("res.data.data.username: " + res.data.data.username);
+                // console.log("userForm.username: " + userForm.username);
+                // console.log("res.data.data.password: " + res.data.data.password);
+                // console.log("userForm.password: " + userForm.password);
+                // console.log("res.data.data.confirmpassword: " + res.data.data.confirmpassword);
+                // console.log("userForm.confirmpassword: " + userForm.confirmpassword);
+                if(res.data.data.username != userForm.username /* ||
+                    res.data.data.password != userForm.password ||
+                    res.data.data.confirmpassword != userForm.confirmpassword */) {
+                    // const input = document.getElementById('email');
+                    // input.setCustomValidity('One or more inputs do not match.');
+                    const input = document.getElementById('username');
+                    input.setCustomValidity('Username does not match.');
                     // *returns a value to the function
                     // *and doesn't continue the function
                     return;
                 }
                 if(userForm.password == userForm.confirmpassword) {
-                    axios.post("http://localhost:5000/users/login", userForm)
+                    axios
+                        .post("http://localhost:5000/users/login", userForm)
                         .then((res) => {
-                            console.log(res.data);
                             // *.json({}) = res.data
                             // *then to access .json({data: result,}) = res.data.data 
                             // *setUser logs into an account
+                            console.log(res.data.data);
                             setUser(res.data.data);
+                            const user_account = JSON.stringify(res.data);
+                            window.localStorage.setItem("user_account", user_account);
+                            // --- A major problem is that the user's use state 
+                            // --- is losing the account data whenever the page 
+                            // --- reloads. I [Daniel] tried fixing the problem w/
+                            // --- localStorage, but it's not working out very well. 
+                            // localStorage.setItem("_user", res.data.data);
+                            // console.log("_user 1:" + localStorage.getItem("_user"));
                             setUserForm({
                                 email: "",
                                 username: "",
                                 password: "",
                                 confirmpassword: "",
                             });
+                            
                         });
                 } else {
                     const input = document.getElementById('confirmpassword');

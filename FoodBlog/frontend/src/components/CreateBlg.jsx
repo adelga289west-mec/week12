@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Routes, Route, Link } from "react-router-dom";
 import "../Styles/Createblog.css"
 
 function CreateBlg() {
@@ -26,13 +27,11 @@ function CreateBlg() {
             .then((res) => {
                 console.log(res.data);
                 setUserForm({
-                    title: "",
-                    description: "",
-                    content: "",
-                    dishOrigin: "",
-                    category: ""
-
-
+                  title: "",
+                  description: "",
+                  content: "",
+                  dishOrigin: "",
+                  category: ""
                 });
             });
     };
@@ -91,6 +90,9 @@ function CreateBlg() {
             <option value="USA">USA</option>
             <option value="Other World Regions">Other World Regions</option>
         </select>
+
+
+
       </div>
       </div>
 
