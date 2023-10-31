@@ -4,21 +4,59 @@ import { Routes, Route, Link } from "react-router-dom";
 import "../Styles/Createblog.css"
 
 function CreateBlg() {
+  const cloud_name="ddtruv2cm";
+
     const [userForm, setUserForm] = useState({
+ /*        userBlogs: [{
+          title: "",
+          description: "",
+          dishOrigin: "Dish Origin",
+          category: "Category",
+          imageUrl: "",
+          rating: [{
+            thumbsUp:""
+            ,thumbsDown:"",
+        }]
+        }
+
+        ] */
+
         title: "",
         description: "",
-        content: "",
         dishOrigin: "Dish Origin",
-        category: "Category"
+        category: "Category",
+        imageUrl: "",
+    
 
     });
+    
 
-    const inputsHandler = (e) => {
-        setUserForm((prevNext) => ({
-            ...prevNext,
-            [e.target.name]: e.target.value,
+    const[image, setImage]=useState();
+         const inputsHandler = (e)=> {
+                setUserForm((prevNext) => ({
+          ...prevNext,
+          [e.target.name]: e.target.value,
+          
         }));
-    };
+
+      }
+
+
+    const cloudHandler = (e) => {
+      const formData = new FormData(); 
+         
+      formData.append('file', e.target.files[0]);
+      formData.append("upload_preset", 'Blogimages');
+
+
+    axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, formData)
+        .then((res) => {      
+          const imageurl = res.data.secure_url;
+          userForm.imageUrl=imageurl
+            setImage(imageurl)
+
+        })      
+    }
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -27,11 +65,26 @@ function CreateBlg() {
             .then((res) => {
                 console.log(res.data);
                 setUserForm({
+              /*     userBlogs: [{
+                    title: "",
+                    description: "",
+                    dishOrigin: "Dish Origin",
+                    category: "Category",
+                    imageUrl: "",
+                    rating: [{
+                      thumbsUp:"",
+                      thumbsDown:"",
+                  }]
+                  }
+          
+                  ] */
+
                   title: "",
                   description: "",
-                  content: "",
-                  dishOrigin: "",
-                  category: ""
+                  dishOrigin: "Dish Origin",
+                  category: "Category",
+                  imageUrl: "",
+
                 });
             });
     };
@@ -40,7 +93,7 @@ function CreateBlg() {
 
 
     return (
-        <>
+      <>
        <div className="image-container">
         <img id='foodpic' src="food.jpg" alt="World Kitchen Wonders" />
       </div>
@@ -115,12 +168,12 @@ function CreateBlg() {
       <div id="boxes">
         <label for="Content" id="title">Insert Image:</label>
         <div className="top-inputs">
-          <input id="files" name="file" type="file" placeholder="Insert Image" />
+          <input id="files" name="file" type="file" onChange={cloudHandler} onSubmit={inputsHandler} placeholder="Insert Image" />
       </div>
       </div>
       <button className="post-button">Post</button>
       </form>
-</>
+      </>
     );
 }
 

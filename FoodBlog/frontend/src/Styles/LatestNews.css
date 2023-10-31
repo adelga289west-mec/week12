@@ -25,7 +25,7 @@
     align-items: space-between;
     display: flex;
     flex-direction: row-reverse;
-    overflow-x: scroll;
+    overflow-x: hidden;
 }
 .news-show > div {
     justify-self: center;

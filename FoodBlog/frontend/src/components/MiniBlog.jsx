@@ -30,7 +30,7 @@ function MiniBlog() {
                         return (
 
                           <div className="mini-blog-body">
-                          <img className="mini-blog-image" src={img1} alt="mini blog img" />
+                          <img className="mini-blog-image" src={user.imageUrl} alt="mini blog img" />
                           <div className="mini-blog-more">
                               <p className="mini-blog-date">*Date*</p>
                               <p className="mini-blog-username">*Username*</p>

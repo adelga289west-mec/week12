@@ -35,6 +35,10 @@ router.route("/").get(async (req, res, next) => {
     });
 });
 
+router.route("/view-indblog/u/:username").get(async (req, res, next) => {
+
+});
+
 /*  router.route('/latestNews').get(async(req,res)=>{
     try{
         const latestPosts = await Post.find()

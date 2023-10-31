@@ -34,7 +34,7 @@ function BlogBox() {
                                 </div>
                             </div>
                             <div className="blog-box-image-body">
-                                <img src={mini_img} alt="post image" className="blog-box-image" />
+                                <img src={user.imageUrl} alt="post image" className="blog-box-image" />
                             </div>
                         </div>
                     </div>

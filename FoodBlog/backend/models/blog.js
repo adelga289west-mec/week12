@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 let foodSchema = new Schema({
-    userBlogs: [{
+  /*   userBlogs: [{
         title: {
             type: String,
         }, 
@@ -15,9 +15,9 @@ let foodSchema = new Schema({
         category: {
             type: String,
         },
-    /*     imageURL:{
+         imageUrl:{
             type:String,
-        }, */
+        }, 
         rating: [{
             thumbsUp: {
                 type: Number,
@@ -26,7 +26,22 @@ let foodSchema = new Schema({
                 type: Number,
             }
         }]
-    }],
+    }], */
+    title: {
+        type: String,
+    }, 
+    description: {
+        type: String,
+    },
+    dishOrigin:{
+        type: String,
+    },
+    category: {
+        type: String,
+    },
+     imageUrl:{
+        type:String,
+    },
 }, {
     collection: 'blogs', 
         
