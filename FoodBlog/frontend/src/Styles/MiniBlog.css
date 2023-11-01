@@ -33,6 +33,12 @@
     margin: 6px 0 0 0;
     font-size: 1.2rem;
     color: var(--main-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
+    max-height: 45px;
+
 }
 .mini-blog-read-more{
     color: var(--mini-blog-read-more-color);

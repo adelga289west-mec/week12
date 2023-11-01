@@ -80,7 +80,7 @@ router.route("/:userId").get(async (req, res, next) => {
         });
 });
 
-router.route("/validate/:email").get(async (req, res, next) => {
+router.route("/validate/:email").get(async (req, res, next) => { 
     await userSchema
         .findOne({email: req.params.email})
         .then((result) => {

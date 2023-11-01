@@ -58,5 +58,11 @@
     border-radius: 5px;
 }
 
+.blog-box-description{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 550px;
+}
 
 

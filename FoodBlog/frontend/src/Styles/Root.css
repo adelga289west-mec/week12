@@ -1,6 +1,7 @@
 :root{
     --background-color: white;
     --theme-background-color: #B07249;
+    --theme-faded-background-color: #d9d9d9f1;
     --main-color: black;
     --second-color: white;
     --main-font-famiy: Arial, Helvetica, sans-serif;

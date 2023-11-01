@@ -10,6 +10,7 @@ import BlogPage from './components/BlogPage';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import IndBlogPage from './components/IndBlogPage';
+import UserProfilePage from './components/BlogAccount';
 
 function App() {
   // Specifc User Account
@@ -31,12 +32,14 @@ function App() {
         <Route path='/create-blog' element={<CreateBlg />} />
         <Route path='/view-blogs' element={<BlogPage />} />
         <Route path='/view-indblog' element={<IndBlogPage />} />
+        <Route path='/view-profile' element={<UserProfilePage />} />
         <Route path='/login' element={<LoginPage setUser={setUser} />} />
         <Route path='/signup' element={<SignupPage />} />
       </Routes>
       <Link to={"/create-blog"}>Create Blog</Link>
       <Link to={"/view-blogs"}>View Blogs</Link>
       <Link to={"/view-indblog"}>View User Blog</Link>
+      <Link to={"/view-profile"}>View User Account</Link>
       <Footer />
     </div>
   );

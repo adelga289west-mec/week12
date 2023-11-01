@@ -44,6 +44,7 @@ let foodSchema = new Schema({
     },
 }, {
     collection: 'blogs', 
+    timestamps: true
         
 })
 

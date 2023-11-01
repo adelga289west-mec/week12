@@ -1,0 +1,75 @@
+.blog-account-main {
+    height: auto;
+    width: 100%;
+}
+.blog-account-profile-background {
+    height: 20vh;
+    width: 100%;
+    background-color: #D0D0D0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.blog-account-profile-img {
+    height: 125px;
+    width: 125px;
+    border-radius: 100px;
+}
+.blog-account-profile-img > img {
+    height: 125px;
+    width: 125px;
+    border-radius: 100px;
+    object-fit: contain;
+}
+.blog-account-username {
+    height: auto;
+    width: 60%;
+    padding: 0 20%;
+    text-align: center;
+}
+.blog-account-username > p {
+    font-size: 1.4rem;
+    margin: 1vh 0;
+    color: black; /* change to var(--main-color); */
+}
+.blog-account-bio {
+    height: auto;
+    width: 60%;
+    padding: 0 20%;
+    text-align: center;
+}
+.blog-account-bio > p {
+    font-size: 1rem;
+    margin: 1vh 0;
+    color: black; /* change to var(--main-color); */
+}
+.blog-account-posts-title {
+    height: auto;
+    width: 60%;
+    margin: 0 20%;
+    text-align: left;
+}
+.blog-account-posts-title > p {
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.6); /* change to var(--main-color); */
+}
+.blog-account-posts {
+    height: auto;
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-auto-flow: row dense;
+    justify-content: space-between;
+    margin: 0 15%;
+}
+.blog-account-post {
+    height: 250px;
+    width: 3rem; /* Change this to a strict value, ex. px, rem */
+    display: flex;
+    padding: 10px;
+    background-color: #F0F0F0;
+}
+.blog-account-post-img {
+    height: 200px;
+    width: 200px;
+}

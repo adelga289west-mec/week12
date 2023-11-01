@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom'
 import '../Styles/BlogBox.css';
 import mini_img from '../Images/mini_img.jpg';
 import MiniTag from './MiniTag';
@@ -17,18 +18,22 @@ function BlogBox() {
                 console.log(error);
             });
     }, []);
+
+    
   
     return (
         <>
             {userForm.map((user) => {
                 return (
-                    <div className="blog-box-main">
+                    <Link to={`/view-indblog/${user.title}/${user._id}`}>
+                    <div className="blog-box-main" >
                         <div className="blog-box">
                             <div className="blog-box-info">
-                                <p className="blog-box-username">*username*</p>
+                                <p className="blog-box-username">username</p>
                                 <p className="blog-box-title">{user.title}</p>
                                 <p className="blog-box-description">{user.description}</p>
-                                <div className="blog-box-date-tags">
+{/*                                 <Link  className="mini-blog-read-more" to={"/view-indblog"}>Read More</Link>
+ */}                                <div className="blog-box-date-tags">
                                     <p className="blog-box-date">Oct 18</p>
                                     <MiniTag />
                                 </div>
@@ -38,6 +43,7 @@ function BlogBox() {
                             </div>
                         </div>
                     </div>
+                    </Link>
                 );
             })}
         </>  

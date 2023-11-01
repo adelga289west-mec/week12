@@ -21,12 +21,22 @@
 .news-show {
     margin: auto;
     height: auto;
-    width: 90%;
+    max-height: 470px;
+    width: 100%;
+    max-width: 95%;
     align-items: space-between;
     display: flex;
-    flex-direction: row-reverse;
-    overflow-x: hidden;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: hidden;
+    gap: 20px;
+    justify-content: center;
+
+  
+
 }
+
+
 .news-show > div {
     justify-self: center;
 }

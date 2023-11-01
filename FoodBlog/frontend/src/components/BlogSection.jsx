@@ -7,7 +7,6 @@ function BlogSection() {
   return (
     <div className="blog-section-body">
       <BlogBox />
-   
     </div>
   )
 }
