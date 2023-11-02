@@ -7,7 +7,7 @@ function Filters() {
   return (
     <div className="filters-main">
       <div className="filters-body">
-        <p>Filters</p>
+      {/* <p>Filters</p> */}
         {/* <Tag />
         <Tag />
         <Tag />

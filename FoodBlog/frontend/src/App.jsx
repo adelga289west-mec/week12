@@ -28,18 +28,19 @@ function App() {
     <div>
       <Header user={user} />
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/create-blog' element={<CreateBlg />} />
-        <Route path='/view-blogs' element={<BlogPage />} />
-        <Route path='/view-indblog' element={<IndBlogPage />} />
-        <Route path='/view-profile' element={<UserProfilePage />} />
+        { user ? <Route path={`/u/${user.username}`} element={<Home />} /> : <Route path='/' element={<Home />} />}
+        { user ? <Route path={`/u/${user.username}/create-blog`} element={<CreateBlg />} /> : "" }
+        { user ? <Route path={`/u/${user.username}/view-blogs`} element={<BlogPage />} /> : <Route path='/view-blogs' element={<BlogPage />} /> }
+        {/* { user ? <Route path={`/u/${user.username}/view-indblog/u/:username`} element={<IndBlogPage />} /> : <Route path='/view-indblog/u/:username' element={<IndBlogPage />} />} */}
+        { user ? <Route path={`/u/${user.username}/view-profile`} element={<UserProfilePage />} /> : "" }
+        {/* { user ? <Route path={`/u/${user.username}/view-profile/u/:username`} element={<UserProfilePage />} /> : <Route path='/view-profile/u/:username' element={<UserProfilePage />} />} */}
         <Route path='/login' element={<LoginPage setUser={setUser} />} />
         <Route path='/signup' element={<SignupPage />} />
       </Routes>
-      <Link to={"/create-blog"}>Create Blog</Link>
+      {/* <Link to={"/create-blog"}>Create Blog</Link> */}
       <Link to={"/view-blogs"}>View Blogs</Link>
       <Link to={"/view-indblog"}>View User Blog</Link>
-      <Link to={"/view-profile"}>View User Account</Link>
+      {/* <Link to={"/view-profile"}>View User Account</Link> */}
       <Footer />
     </div>
   );

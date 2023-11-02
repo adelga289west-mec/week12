@@ -3,37 +3,40 @@ import { Routes, Route, Link } from "react-router-dom";
 import '../Styles/Header.css';
 import '../Styles/Root.css';
 import logo from '../Images/World_Kitchen_Wonders_logos_black.png';
-/* import instagram from '../Images/instagram.png'
-import facebook from '../Images/facebook.png'; */
+import icon1 from '../../public/instagram_icon.png'
+import icon2 from '../../public/facebook_logo.png'
+import icon3 from '../../public/twitter_icon.png'
 
-export default function Header({user}) {
-  const[show, setShow]= useState(false);
+export default function Header({user, setUser}) {
+  const [show, setShow] = useState(false);
+  const [xFactor, setXFactor] = useState(false);
+
+  function logOut() {
+    /* window.localStorage.setItem("user_account", "{}"); */
+    /* setUser(); */
+  }
 
   function dropDown() {
     return(
       <div className="header-dropdown"
         onMouseEnter={() => {
           setShow(true);
+          setXFactor(true);
         }}
         onMouseLeave={() => {
-          setTimeout(() => {
-            setShow(false);
-          }, 2500)
+          setShow(false);
+          setXFactor(false);
         }}
       >
         <div className="dropdown-column">
           <Link to={"/view-profile"}>Profile</Link>
-          <Link to={"/create-blog"}>Create Blog</Link>
-          <Link to={"/"}>Log Out</Link>
+          <button type="button" /* onClick={logOut()} */>Log Out</button>
+          <button type="button" /* onClick={logOut()} */>Delete Account</button>
+          {/* <Link to={"/"}>Log Out</Link> */}
         </div>
         <div className="dropdown-column">
-          <Link to={"/"}>Lorem ipsum dolor</Link>
-          <Link to={"/"}>Lorem</Link>
-          <Link to={"/"}>Lorem ipsum</Link>
+          <Link to={"/create-blog"}>Create Blog</Link>
         </div>
-        {/* <div className="dropdown-column">
-          <Link to={"/"}>Create Blog</Link>
-        </div> */}
       </div>
     );
   }
@@ -47,7 +50,9 @@ export default function Header({user}) {
     );
   }
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+
+  }, []);
 
   return(
     <>
@@ -55,13 +60,13 @@ export default function Header({user}) {
         <div className="header-head">
           <div className="header-socials">
             <a href="#">
-              <img src="instagram_icon.png" alt="Instagram Icon" />
+              <img src={icon1} alt="Instagram Icon" />
             </a>
             <a href="#">
-              <img src="facebook_logo.png" alt="FaceBook Icon" />
+              <img src={icon2} alt="FaceBook Icon" />
             </a>
             <a href="#">
-              <img src="twitter_icon.png" alt="Twitter Logo" />
+              <img src={icon3} alt="Twitter Logo" />
             </a>
           </div>
           <div className="header-login" 
@@ -70,8 +75,8 @@ export default function Header({user}) {
             }} 
             onMouseLeave={() => {
               setTimeout(() => {
-                setShow(false);
-              }, 2500)
+                if(!xFactor) setShow(false);
+              }, 750);
             }}
           >
             {user ? accountMenu() : <Link to={"/login"}>Login</Link>}
@@ -80,17 +85,21 @@ export default function Header({user}) {
       </header>
       <div className="sub-header">
         {/* if show is true, display dropDown() */}
-        { show && dropDown() }
+        { user ? (show && dropDown()) : "" }
         <div className="header-title">
           <p className="header-p">
-            <Link className="no-decor main-color" to={"/"}>World Kitchen Wonders</Link>
+            { user ? <Link className="no-decor main-color" to={`/u/${user.username}`}>World Kitchen Wonders</Link> : <Link to={"/"}>Discover More</Link> }
           </p>
-          <Link className="no-decor main-color" to={"/"}>
-            <img className="header-img" src={logo} alt="logo" />
-          </Link>
+          { user ? 
+          <Link className="no-decor main-color" to={`/u/${user.username}`}>
+            <img className="header-img" src={logo} alt="logo" /> 
+          </Link> : 
+          <Link className="no-decor main-color" to={`/`}>
+            <img className="header-img" src={logo} alt="logo" /> 
+          </Link> }
         </div>
         <nav className="header-subtopics">
-          <Link to={"/view-blogs"}>Discover More</Link>
+          { user ? <Link to={`/u/${user.username}/view-blogs`}>Discover More</Link> : <Link to={"/view-blogs"}>Discover More</Link> }
         </nav>
       </div>
     </>

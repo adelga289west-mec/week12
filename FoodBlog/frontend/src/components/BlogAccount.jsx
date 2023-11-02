@@ -27,7 +27,40 @@ export default function BlogAccount() {
         </div>
         <div className="blog-account-posts">
           <div className="blog-account-post">
-              
+            <img className="blog-account-post-img" />
+            <p className="blog-account-post-date">11/2/23</p>
+            <p className="blog-account-post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="blog-account-post-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor beatae asperiores fuga molestias deleniti</p>
+          </div>
+          <div className="blog-account-post">
+            <img className="blog-account-post-img" />
+            <p className="blog-account-post-date">11/2/23</p>
+            <p className="blog-account-post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="blog-account-post-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor beatae asperiores fuga molestias deleniti</p>
+          </div>
+          <div className="blog-account-post">
+            <img className="blog-account-post-img" />
+            <p className="blog-account-post-date">11/2/23</p>
+            <p className="blog-account-post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="blog-account-post-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor beatae asperiores fuga molestias deleniti</p>
+          </div>
+          <div className="blog-account-post">
+            <img className="blog-account-post-img" />
+            <p className="blog-account-post-date">11/2/23</p>
+            <p className="blog-account-post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="blog-account-post-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor beatae asperiores fuga molestias deleniti</p>
+          </div>
+          <div className="blog-account-post">
+            <img className="blog-account-post-img" />
+            <p className="blog-account-post-date">11/2/23</p>
+            <p className="blog-account-post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="blog-account-post-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor beatae asperiores fuga molestias deleniti</p>
+          </div>
+          <div className="blog-account-post">
+            <img className="blog-account-post-img" />
+            <p className="blog-account-post-date">11/2/23</p>
+            <p className="blog-account-post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p className="blog-account-post-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor beatae asperiores fuga molestias deleniti</p>
           </div>
         </div>
       </div>

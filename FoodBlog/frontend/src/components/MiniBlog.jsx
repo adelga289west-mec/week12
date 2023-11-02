@@ -14,9 +14,9 @@ function MiniBlog() {
     axios
       .get("http://localhost:5000/blogs/")
       .then((res) => {
-        const reversedData = res.data.data.reverse();
-        setUserForm(res.data.data);
-        console.log(res.data.data.description)
+        const reversedData = res.data.data.userBlogs.reverse();
+        setUserForm(res.data.data.userBlogs);
+        console.log(res.data.data.userBlogs.description)
       })
       .catch((error) => {
         console.log(error);

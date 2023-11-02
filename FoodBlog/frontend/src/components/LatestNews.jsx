@@ -19,11 +19,8 @@ function LatestNews() {
            <MiniBlog /> 
            </div>
            </div>
-      
     </>
   )
 }
-
-
 
 export default LatestNews;

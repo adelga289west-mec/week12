@@ -8,7 +8,7 @@ function BlogPage() {
   return (
     <div className="blog-grid">
       <BlogSection />
-      <Filters />
+      {/* <Filters /> */}
     </div>
   )
 }

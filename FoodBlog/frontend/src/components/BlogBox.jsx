@@ -18,7 +18,6 @@ function BlogBox() {
                 console.log(error);
             });
     }, []);
-
     
   
     return (
