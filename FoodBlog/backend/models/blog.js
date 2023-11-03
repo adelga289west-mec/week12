@@ -3,13 +3,13 @@ const Schema = mongoose.Schema;
 
 let foodSchema = new Schema({
     /* Schema that needs to be used */
-    username: {
-        type: String,
-    },
-    userBlogs: [{
-        blogId: {
-            type: String,
-        },
+    // username: {
+    //     type: String,
+    // },
+    // userBlogs: [{
+        // blogId: {
+        //     type: String,
+        // },
         title: {
             type: String,
         }, 
@@ -25,7 +25,7 @@ let foodSchema = new Schema({
         imageUrl: {
             type:String,
         },
-    }],
+    // }],
 }, {
     collection: 'blogs', 
     timestamps: true

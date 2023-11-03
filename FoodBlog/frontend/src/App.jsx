@@ -28,8 +28,8 @@ function App() {
     <div>
       <Header user={user} />
       <Routes>
-        { user ? <Route path={`/u/${user.username}`} element={<Home />} /> : <Route path='/' element={<Home />} />}
-        { user ? <Route path={`/u/${user.username}/create-blog`} element={<CreateBlg />} /> : "" }
+        { user ? <Route path='/' element={<Home user={user} />} /> : <Route path='/' element={<Home />} />}
+        { user ? <Route path={`/create-blog`} element={<CreateBlg user={user} />} /> : "" }
         { user ? <Route path={`/u/${user.username}/view-blogs`} element={<BlogPage />} /> : <Route path='/view-blogs' element={<BlogPage />} /> }
         {/* { user ? <Route path={`/u/${user.username}/view-indblog/u/:username`} element={<IndBlogPage />} /> : <Route path='/view-indblog/u/:username' element={<IndBlogPage />} />} */}
         { user ? <Route path={`/u/${user.username}/view-profile`} element={<UserProfilePage />} /> : "" }

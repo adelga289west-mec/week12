@@ -5,22 +5,35 @@ import '../Styles/Root.css';
 import img1 from '../Images/mini_img.jpg';
 import axios from 'axios';
 
-function MiniBlog() {
+function MiniBlog({user}) {
   const [userForm, setUserForm] = useState([]);
 
 
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/blogs/")
-      .then((res) => {
-        const reversedData = res.data.data.userBlogs.reverse();
-        setUserForm(res.data.data.userBlogs);
-        console.log(res.data.data.userBlogs.description)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (user) {
+      axios
+        .get(`http://localhost:5000/blogs/u/${user.username}`)
+        .then((res) => {
+          // const reversedData = res.data.data.userBlogs/* .reverse() */;
+          // setUserForm(res.data.data.userBlogs);
+          console.log(res.data.data.userBlogs);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      axios
+        .get("http://localhost:5000/blogs/")
+        .then((res) => {
+          // const reversedData = res.data.data.userBlogs/* .reverse() */;
+          // setUserForm(res.data.data.userBlogs);
+          console.log(res.data.data.userBlogs);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }, []);
 
 

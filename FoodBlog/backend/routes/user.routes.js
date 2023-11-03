@@ -22,7 +22,7 @@ router.route("/login").post(async (req, res, next) => {
         console.log(result);
         if(result) {
             res.json({
-                data:matchedAccount,
+                data: matchedAccount,
                 message: "Data successfully uploaded",
                 status: 200,
             });
@@ -51,6 +51,7 @@ router.route("/signup").post(async (req, res, next) => {
             email: req.body.email,
             password: hash,
             confirmpassword: hash,
+            userBlogs:[]
         })
         .then((result) => {
             res.json({
@@ -67,13 +68,14 @@ router.route("/signup").post(async (req, res, next) => {
 
 router.route("/:userId").get(async (req, res, next) => {
     await userSchema
-        .findById(req.params.userId)
+        .findById(req.params.userId).populate("userBlogs.")
         .then((result) => {
             res.json({
                 data: result,
                 message: "All items successfully fetched",
                 status: 200,
             });
+            console.log(result.userBlogs)
         })
         .catch(err => {
             return next(err);
