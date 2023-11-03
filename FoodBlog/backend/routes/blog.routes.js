@@ -62,30 +62,27 @@ router.route("/u/:username").get(async (req, res, next) => {
 
 
 
-router.route("/u/:username/create-blog").get(async (req, res, next) => {
-  let newBlog = await foodSchema.create({
+router.route("/u/:username/create-blog").post(async (req, res, next) => { 
+ await foodSchema.create({
+    username: req.params.username,
     title: req.body.title,
     description: req.body.description,
     dishOrigin: req.body.dishOrigin,
     category: req.body.category,
     imageUrl: req.body.imageUrl
+  }).then(blog => {
+    res.json({ blog })
   })
 
-  // let { username } = req.params;
-  let username = req.params.username;
-
-  let user = await userSchema.findOne({username: username});
-
-  user.userBlogs.push(newBlog._id)
-  user.save();
-
-  res.json({ user })
+  
 });
 
-router.route("/view-blogs").get(async (req, res, next) => {
+router.route("/view-blogs").post(async (req, res, next) => {
+ 
 });
 
 router.route("/u/:username/view-blogs").get(async (req, res, next) => {
+
 });
 
 router.route("/u/:username/view-indblog/u/:otherusername").get(async (req, res, next) => {

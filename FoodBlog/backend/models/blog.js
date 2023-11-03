@@ -3,9 +3,9 @@ const Schema = mongoose.Schema;
 
 let foodSchema = new Schema({
     /* Schema that needs to be used */
-    // username: {
-    //     type: String,
-    // },
+    username: {
+        type: String,
+    },
     // userBlogs: [{
         // blogId: {
         //     type: String,

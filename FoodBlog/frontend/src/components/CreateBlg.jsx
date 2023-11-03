@@ -5,7 +5,7 @@ import "../Styles/Createblog.css"
 import img1 from '../../public/food.jpg'
 
 
-function CreateBlg() {
+function CreateBlg({user}) {
   const cloud_name="ddtruv2cm";
 
   const [blogForm, setBlogForm] = useState({
@@ -45,28 +45,16 @@ function CreateBlg() {
     blogForm.blogId = Date.now()
     axios
       /* Last thing to do w/ CreateBlog.jsx; send to the correct link, we got sidetracked (the link below is currently invalid) */
-      .post("http://localhost:5000/blogs/create-blog", blogForm)
+      .post(`http://localhost:5000/blogs/u/${user.username}/create-blog`, blogForm)
       .then((res) => {
-        console.log(res.data);
+        console.log(res.data.blog);
         setBlogForm({
-          blogId: {
-            type: Number,
-          },
-          title: {
-            type: String,
-          }, 
-          description: {
-            type: String,
-          },
-          dishOrigin: {
-            type: String,
-          },
-          category: {
-            type: String,
-          },
-          imageUrl: {
-            type:String,
-          },
+          blogId: "",
+          title:"", 
+          description: "",
+          dishOrigin: "",
+          category: "",
+          imageUrl: "",
         });
       });
   };

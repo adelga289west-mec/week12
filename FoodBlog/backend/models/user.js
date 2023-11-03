@@ -6,7 +6,6 @@ let usersSchema = new Schema({
     email: { type: String, unique: true },
     password: String,
     confirmpassword: String,
-    userBlogs: [{ blog: { type: mongoose.Schema.Types.ObjectId, ref: "Blog" } }]
 }, {
     collection: 'users',
 });
