@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../Styles/BlogSection.css';
 import BlogBox from './BlogBox';
 
-function BlogSection() {
+function BlogSection({user}) {
 
   return (
     <div className="blog-section-body">

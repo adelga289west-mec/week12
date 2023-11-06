@@ -15,6 +15,7 @@ import UserProfilePage from './components/BlogAccount';
 function App() {
   // Specifc User Account
   const [user, setUser] = useState();
+
   function resetUser() {
     const user_Account = JSON.parse(window.localStorage.getItem("user_account"));
     setUser(user_Account.data);
@@ -28,19 +29,23 @@ function App() {
     <div>
       <Header user={user} />
       <Routes>
-        { user ? <Route path='/' element={<Home user={user} />} /> : <Route path='/' element={<Home />} />}
-        { user ? <Route path={`/create-blog`} element={<CreateBlg user={user} />} /> : "" }
-        { user ? <Route path={`/u/${user.username}/view-blogs`} element={<BlogPage />} /> : <Route path='/view-blogs' element={<BlogPage />} /> }
-        {/* { user ? <Route path={`/u/${user.username}/view-indblog/u/:username`} element={<IndBlogPage />} /> : <Route path='/view-indblog/u/:username' element={<IndBlogPage />} />} */}
-        { user ? <Route path={`/u/${user.username}/view-profile`} element={<UserProfilePage />} /> : "" }
-        {/* { user ? <Route path={`/u/${user.username}/view-profile/u/:username`} element={<UserProfilePage />} /> : <Route path='/view-profile/u/:username' element={<UserProfilePage />} />} */}
-        <Route path='/login' element={<LoginPage setUser={setUser} />} />
-        <Route path='/signup' element={<SignupPage />} />
+        <Route path='/' element={<Home /* logout={logout} */ />} /> {/* COMPLETE */}
+        {/* <Route path='/' element={ user ? <Home user={user} logout={logout} /> : <Home /> } />  */}
+        {/* Redirects User To Login If They Are Not Logged In */}
+        <Route path='/create-blog' element={ user ? <CreateBlg user={user} /> : <Link to="/login" /> } /> {/* COMPLETE */}
+        <Route path='/view-blogs' element={ user ? <BlogPage user={user} /> : <BlogPage /> } /> {/* ALMOST COMPLETED [date JS (year, month, day display)] */}
+        <Route path='/view-indblog' element={ user ? <IndBlogPage user={user} /> : <IndBlogPage /> } />
+        {/* <Route path='/view-indprofile' element={ <IndBlogPage /> } /> */}
+        <Route path='/view-profile' element={ user ? <UserProfilePage user={user} /> : <UserProfilePage /> } />
+        <Route path='/login' element={<LoginPage setUser={setUser} />} /> {/* COMPLETE */}
+        <Route path='/signup' element={<SignupPage />} /> {/* COMPLETE */}
       </Routes>
-      {/* <Link to={"/create-blog"}>Create Blog</Link> */}
+
+      {/* Links For Testing Purposes */}
+      <Link to={"/create-blog"}>Create Blog</Link>
       <Link to={"/view-blogs"}>View Blogs</Link>
       <Link to={"/view-indblog"}>View User Blog</Link>
-      {/* <Link to={"/view-profile"}>View User Account</Link> */}
+      <Link to={"/view-profile"}>View User Account</Link>
       <Footer />
     </div>
   );

@@ -97,6 +97,4 @@ router.route("/validate/:email").get(async (req, res, next) => {
         });
 });
 
-
-
 module.exports = router;

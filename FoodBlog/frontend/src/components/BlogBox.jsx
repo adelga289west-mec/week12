@@ -12,11 +12,12 @@ function BlogBox() {
         axios
             .get("http://localhost:5000/blogs/")
             .then((res) => {
-                setUserForm(res.data.data);
+                setUserForm(res.data.data.reverse());
             })
             .catch((error) => {
                 console.log(error);
             });
+            
     }, []);
     
   
@@ -24,16 +25,16 @@ function BlogBox() {
         <>
             {userForm.map((user) => {
                 return (
-                    <Link to={`/view-indblog/${user.title}/${user._id}`}>
+                    <Link to={'/view-indblog/'}>
                     <div className="blog-box-main" >
                         <div className="blog-box">
                             <div className="blog-box-info">
-                                <p className="blog-box-username">username</p>
+                                <p className="blog-box-username">{user.author}</p>
                                 <p className="blog-box-title">{user.title}</p>
                                 <p className="blog-box-description">{user.description}</p>
 {/*                                 <Link  className="mini-blog-read-more" to={"/view-indblog"}>Read More</Link>
  */}                                <div className="blog-box-date-tags">
-                                    <p className="blog-box-date">Oct 18</p>
+                                    <p className="blog-box-date">{user.createdAt}</p>
                                     <MiniTag />
                                 </div>
                             </div>

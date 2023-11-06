@@ -3,11 +3,11 @@ import '../Styles/BlogPage.css';
 import BlogSection from './BlogSection';
 import Filters from './Filters';
 
-function BlogPage() {
+function BlogPage({user}) {
 
   return (
     <div className="blog-grid">
-      <BlogSection />
+      <BlogSection user={user} />
       {/* <Filters /> */}
     </div>
   )

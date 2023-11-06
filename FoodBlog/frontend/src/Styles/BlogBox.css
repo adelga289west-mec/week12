@@ -1,3 +1,7 @@
+*{
+    text-decoration: none;
+}
+
 .blog-box-main{
     height: auto;
     width: 100%;
@@ -12,7 +16,10 @@
     padding: var(--blog-box-padding);
     border-radius: 10px;
     background-color: var(--blog-box-background-color);
+    text-decoration: none;
+
 }
+
 .blog-box > .blog-box-info {
     height: auto;
     width: 100%;
@@ -63,6 +70,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 550px;
+}
+.blog-box-info{
+
 }
 
 

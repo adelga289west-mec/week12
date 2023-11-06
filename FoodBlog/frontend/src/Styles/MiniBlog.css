@@ -12,7 +12,9 @@
     height: auto;
     width: 20rem;
     margin: 0 2rem;
+    
 }
+
 .mini-blog-image {
     height: 20rem;
     object-fit: cover;
@@ -28,6 +30,12 @@
     font-size: 1.4rem;
     font-weight: bold;
     color: var(--mini-blog-title-color);
+}
+.mini-blog-date{
+    max-width: 123.5px;
+    overflow: hidden;
+    white-space: nowrap;
+
 }
 .mini-blog-description{
     margin: 6px 0 0 0;

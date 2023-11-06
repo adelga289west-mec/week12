@@ -88,18 +88,14 @@ export default function Header({user, setUser}) {
         { user ? (show && dropDown()) : "" }
         <div className="header-title">
           <p className="header-p">
-            { user ? <Link className="no-decor main-color" to={`/u/${user.username}`}>World Kitchen Wonders</Link> : <Link to={"/"}>Discover More</Link> }
+            <Link className="no-decor main-color" to={`/`}>World Kitchen Wonders</Link>
           </p>
-          { user ? 
-          <Link className="no-decor main-color" to={`/u/${user.username}`}>
-            <img className="header-img" src={logo} alt="logo" /> 
-          </Link> : 
           <Link className="no-decor main-color" to={`/`}>
             <img className="header-img" src={logo} alt="logo" /> 
-          </Link> }
+          </Link>
         </div>
         <nav className="header-subtopics">
-          { user ? <Link to={`/u/${user.username}/view-blogs`}>Discover More</Link> : <Link to={"/view-blogs"}>Discover More</Link> }
+          <Link to={"/view-blogs"}>Discover More</Link> 
         </nav>
       </div>
     </>

@@ -9,7 +9,7 @@ function CreateBlg({user}) {
   const cloud_name="ddtruv2cm";
 
   const [blogForm, setBlogForm] = useState({
-    blogId: "",
+    author: "",
     title: "", 
     description: "",
     dishOrigin: "",
@@ -42,15 +42,14 @@ function CreateBlg({user}) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    blogForm.blogId = Date.now()
+    blogForm.author = user.username;
     axios
-      /* Last thing to do w/ CreateBlog.jsx; send to the correct link, we got sidetracked (the link below is currently invalid) */
-      .post(`http://localhost:5000/blogs/u/${user.username}/create-blog`, blogForm)
+      .post('http://localhost:5000/blogs/create-blog', blogForm)
       .then((res) => {
-        console.log(res.data.blog);
+        console.log(res.data.data);
         setBlogForm({
-          blogId: "",
-          title:"", 
+          author: "",
+          title:"",
           description: "",
           dishOrigin: "",
           category: "",
