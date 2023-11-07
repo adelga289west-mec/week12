@@ -5,13 +5,6 @@ let router = express.Router();
 
 let userSchema = require("../models/user");
 
-// router.route("/login/:userId").get(async (req, res, next) => {
-//     const userAccount = await userSchema.findOne({
-//         email: req.body.email,
-//     });
-//     if(userAccount) res.render('/login', {userAccount});
-// });
-
 router.route("/login").post(async (req, res, next) => {
     let matchedAccount = await userSchema.findOne({
         email: req.body.email,
@@ -36,12 +29,22 @@ router.route("/login").post(async (req, res, next) => {
     });
 });
 
-// router.route("/signup/:userId").get(async (req, res, next) => {
-//     const userAccount = await userSchema.findOne({
-//         email: req.body.email,
-//     });
-//     if(userAccount) render('/signup', {userAccount});
-// });
+router.route("/profile/:userId").get(async (req, res, next) => {
+    const userID = req.params.userId;
+    console.log(userID)
+    await userSchema
+      .findById(userID)
+      .then((result) => {
+        res.json({
+          data: result,
+          message: "All items successfully fetched",
+          status: 200,
+        });
+      })
+      .catch(err => {
+        return next(err);
+      });
+});
 
 router.route("/signup").post(async (req, res, next) => {
     let hash = await bcrypt.hash(req.body.password, 10);

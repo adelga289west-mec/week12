@@ -71,8 +71,12 @@
     text-overflow: ellipsis;
     max-width: 550px;
 }
-.blog-box-info{
 
+.blog-box-date{
+
+    max-width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 

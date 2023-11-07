@@ -23,23 +23,23 @@ function BlogBox() {
   
     return (
         <>
-            {userForm.map((user) => {
+            {userForm.map((blog) => {
                 return (
-                    <Link to={'/view-indblog/'}>
+                    <Link to={`/view-indblog/${blog._id}`}>
                     <div className="blog-box-main" >
                         <div className="blog-box">
                             <div className="blog-box-info">
-                                <p className="blog-box-username">{user.author}</p>
-                                <p className="blog-box-title">{user.title}</p>
-                                <p className="blog-box-description">{user.description}</p>
+                                <p className="blog-box-username">{blog.author}</p>
+                                <p className="blog-box-title">{blog.title}</p>
+                                <p className="blog-box-description">{blog.description}</p>
 {/*                                 <Link  className="mini-blog-read-more" to={"/view-indblog"}>Read More</Link>
  */}                                <div className="blog-box-date-tags">
-                                    <p className="blog-box-date">{user.createdAt}</p>
-                                    <MiniTag />
+                                    <p className="blog-box-date">Date: {blog.createdAt}</p>
+                                    {/* <MiniTag /> */}
                                 </div>
                             </div>
                             <div className="blog-box-image-body">
-                                <img src={user.imageUrl} alt="post image" className="blog-box-image" />
+                                <img src={blog.imageUrl} alt="post image" className="blog-box-image" />
                             </div>
                         </div>
                     </div>

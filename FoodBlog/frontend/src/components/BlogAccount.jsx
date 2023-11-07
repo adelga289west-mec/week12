@@ -1,67 +1,77 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 import '../Styles/BlogAccount.css';
 import '../Styles/Root.css';
+import defaultPfp from '../Images/Default_pfp.svg.png'
 
 export default function BlogAccount() {
-  // useEffect(() => {}, []);
+  const [user, setUser] = useState([]);
+  const [tempBlogs, setTempBlogs] = useState([]);
+  const [blogs, setBlogs] = useState([]);
+
+const [test, setTest] = useState([])
+
+  let params= useParams();
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/users/profile/" + params.userId)
+      .then((result) => {
+        setUser(result.data.data);
+        setTempBlogs(result.data.data.blogsIds);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    tempBlogs.map( (blogID) => {
+       axios 
+        .get("http://localhost:5000/blogs/profile/" + blogID)
+        .then((result) => {
+          // temp.push(result.data.data);
+          setTest((prev) => [
+            ...prev, result.data.data
+          ])
+          
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+        console.log(test);
+    })
+  }, []);
 
   return(
     <>
       <div className="blog-account-main">
         <div className="blog-account-profile-background">
           <div className="blog-account-profile-img">
-            {/* <img src={} />  */}
+            <img src={ user.profileImg ? user.profileImg : defaultPfp } /> 
           </div>
         </div>
         <div className="blog-account-username">
-          <p>Username</p>
+          <p>{ user.username }</p>
         </div>
         <div className="blog-account-bio">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere eos doloremque cumque harum quis. Corrupti illo doloremque nemo aspernatur a! Accusantium officiis exercitationem assumenda molestiae tempora delectus doloribus voluptatem error! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere eos doloremque cumque harum quis. Corrupti illo doloremque nemo aspernatur a! Accusantium officiis exercitationem assumenda molestiae tempora delectus doloribus voluptatem error!
-          </p>
+          <p>{ user.profileBio }</p>
         </div>
         <div className="blog-account-posts-title">
           <p>Blog Posts</p>
         </div>
         <div className="blog-account-posts">
-          <div className="blog-account-post">
-            <img className="blog-account-post-img" />
-            <p className="blog-account-post-date">11/2/23</p>
-            <p className="blog-account-post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p className="blog-account-post-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor beatae asperiores fuga molestias deleniti</p>
-          </div>
-          <div className="blog-account-post">
-            <img className="blog-account-post-img" />
-            <p className="blog-account-post-date">11/2/23</p>
-            <p className="blog-account-post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p className="blog-account-post-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor beatae asperiores fuga molestias deleniti</p>
-          </div>
-          <div className="blog-account-post">
-            <img className="blog-account-post-img" />
-            <p className="blog-account-post-date">11/2/23</p>
-            <p className="blog-account-post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p className="blog-account-post-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor beatae asperiores fuga molestias deleniti</p>
-          </div>
-          <div className="blog-account-post">
-            <img className="blog-account-post-img" />
-            <p className="blog-account-post-date">11/2/23</p>
-            <p className="blog-account-post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p className="blog-account-post-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor beatae asperiores fuga molestias deleniti</p>
-          </div>
-          <div className="blog-account-post">
-            <img className="blog-account-post-img" />
-            <p className="blog-account-post-date">11/2/23</p>
-            <p className="blog-account-post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p className="blog-account-post-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor beatae asperiores fuga molestias deleniti</p>
-          </div>
-          <div className="blog-account-post">
-            <img className="blog-account-post-img" />
-            <p className="blog-account-post-date">11/2/23</p>
-            <p className="blog-account-post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p className="blog-account-post-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus dolor beatae asperiores fuga molestias deleniti</p>
-          </div>
+          {test.map((userBlog) => {
+            return(
+              <div className="blog-account-post">
+                <img className="blog-account-post-img" />
+                <p className="blog-account-post-date">11/2/23</p>
+                <p className="blog-account-post-title">{ userBlog.title }</p>
+                <p className="blog-account-post-description">{ userBlog.description }</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </>

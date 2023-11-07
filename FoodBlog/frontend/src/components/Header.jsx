@@ -29,7 +29,7 @@ export default function Header({user, setUser}) {
         }}
       >
         <div className="dropdown-column">
-          <Link to={"/view-profile"}>Profile</Link>
+          <Link to={ user ? `/view-profile/${user._id}` : <Link to="/login" />}>Profile</Link>
           <button type="button" /* onClick={logOut()} */>Log Out</button>
           <button type="button" /* onClick={logOut()} */>Delete Account</button>
           {/* <Link to={"/"}>Log Out</Link> */}

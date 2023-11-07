@@ -22,7 +22,7 @@ function App() {
   }
 
   useEffect(() => {
-    resetUser();
+     resetUser(); 
   }, []);
 
   return (
@@ -32,20 +32,16 @@ function App() {
         <Route path='/' element={<Home /* logout={logout} */ />} /> {/* COMPLETE */}
         {/* <Route path='/' element={ user ? <Home user={user} logout={logout} /> : <Home /> } />  */}
         {/* Redirects User To Login If They Are Not Logged In */}
-        <Route path='/create-blog/u/' element={ user ? <CreateBlg user={user} /> : <Link to="/login" /> } /> {/* COMPLETE */}
+        <Route path='/create-blog' element={ user ? <CreateBlg user={user} /> : <Link to="/login" /> } /> {/* COMPLETE */}
         <Route path='/view-blogs' element={ user ? <BlogPage user={user} /> : <BlogPage /> } /> {/* ALMOST COMPLETED [date JS (year, month, day display)] */}
-        <Route path='/view-indblog' element={ user ? <IndBlogPage user={user} /> : <IndBlogPage /> } />
-        {/* <Route path='/view-indprofile' element={ <IndBlogPage /> } /> */}
-        <Route path='/view-profile' element={ user ? <UserProfilePage user={user} /> : <UserProfilePage /> } />
+        <Route path='/view-indblog/:blogId' element={<IndBlogPage />} />
+        <Route path='/view-profile/:userId' element={<UserProfilePage />} />
         <Route path='/login' element={<LoginPage setUser={setUser} />} /> {/* COMPLETE */}
         <Route path='/signup' element={<SignupPage />} /> {/* COMPLETE */}
       </Routes>
 
       {/* Links For Testing Purposes */}
-      <Link to={"/create-blog"}>Create Blog</Link>
-      <Link to={"/view-blogs"}>View Blogs</Link>
-      <Link to={"/view-indblog"}>View User Blog</Link>
-      <Link to={"/view-profile"}>View User Account</Link>
+    
       <Footer />
     </div>
   );
