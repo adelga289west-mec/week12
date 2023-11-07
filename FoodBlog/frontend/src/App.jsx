@@ -32,7 +32,7 @@ function App() {
         <Route path='/' element={<Home /* logout={logout} */ />} /> {/* COMPLETE */}
         {/* <Route path='/' element={ user ? <Home user={user} logout={logout} /> : <Home /> } />  */}
         {/* Redirects User To Login If They Are Not Logged In */}
-        <Route path='/create-blog' element={ user ? <CreateBlg user={user} /> : <Link to="/login" /> } /> {/* COMPLETE */}
+        <Route path='/create-blog/u/' element={ user ? <CreateBlg user={user} /> : <Link to="/login" /> } /> {/* COMPLETE */}
         <Route path='/view-blogs' element={ user ? <BlogPage user={user} /> : <BlogPage /> } /> {/* ALMOST COMPLETED [date JS (year, month, day display)] */}
         <Route path='/view-indblog' element={ user ? <IndBlogPage user={user} /> : <IndBlogPage /> } />
         {/* <Route path='/view-indprofile' element={ <IndBlogPage /> } /> */}
